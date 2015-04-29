@@ -27,7 +27,7 @@ es.init_app(app)
 
 ## Customizing Properties
 
-If you need to customize the host, add the following into your app.config:
+In order to customize the host, add the following into your app.config (see [Configuration Handling](http://flask.pocoo.org/docs/0.10/config/) for more details):
 ```
 ELASTICSEARCH_HOST = "10.10.10.13:9200"
 ```
