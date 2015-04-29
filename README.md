@@ -37,4 +37,4 @@ If you need to use HTTP Authentication for the Elasticsearch connection, add the
 ELASTICSEARCH_HTTP_AUTH = "<INSERT AUTH KEY>"
 ```
 
-If ELASTICSEARCH_HTTP_AUTH is not set, the Elasticsearch connection will simply not use authentication.
+If ```ELASTICSEARCH_HTTP_AUTH``` is not set, the Elasticsearch connection will simply not use authentication.
