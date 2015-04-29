@@ -10,7 +10,7 @@ except ImportError:
     from flask import _request_ctx_stack as stack
 
 
-class FlaskElasticSearch(object):
+class FlaskElasticsearch(object):
     def __init__(self, app=None):
         self.app = app
         if app is not None:
