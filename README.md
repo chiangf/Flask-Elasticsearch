@@ -4,6 +4,11 @@ This is a Flask extension that provides simple integration with Elasticsearch.
 
 ## Usage
 
+In order to install:
+```
+pip install Flask-Elasticsearch
+```
+
 In your main app file:
 ```
 from flask import Flask
