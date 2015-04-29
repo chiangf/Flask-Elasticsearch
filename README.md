@@ -7,7 +7,7 @@ This is a Flask extension that provides simple integration with Elasticsearch.
 In your main app file:
 ```
 app = Flask(__name__)
-es = FlaskElasticsearch()
+es = FlaskElasticsearch(app)
 ```
 
 If you're following the [Application Factories](http://flask.pocoo.org/docs/0.10/patterns/appfactories/) pattern:
