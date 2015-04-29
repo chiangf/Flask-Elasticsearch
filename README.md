@@ -6,12 +6,18 @@ This is a Flask extension that provides simple integration with Elasticsearch.
 
 In your main app file:
 ```
+from flask import Flask
+from flask.ext.elasticsearch import FlaskElasticsearch
+
 app = Flask(__name__)
 es = FlaskElasticsearch(app)
 ```
 
 If you're following the [Application Factories](http://flask.pocoo.org/docs/0.10/patterns/appfactories/) pattern:
 ```
+from flask import Flask
+from flask.ext.elasticsearch import FlaskElasticsearch
+
 es = FlaskElasticsearch()
 
 app = Flask(__name__)
