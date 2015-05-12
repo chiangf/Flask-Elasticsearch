@@ -29,6 +29,8 @@ app = Flask(__name__)
 es.init_app(app)
 ```
 
+Now that you have the ```es``` object, you can perform searches. To read more about how to do that, see [Python Elasticsearch Client](https://elasticsearch-py.readthedocs.org).
+
 
 ## Customizing Properties
 
