@@ -11,14 +11,16 @@ except ImportError:
 
 
 class FlaskElasticsearch(object):
-    def __init__(self, app=None):
+    def __init__(self, app=None, **kwargs):
         self.app = app
         if app is not None:
-            self.init_app(app)
+            self.init_app(app, **kwargs)
 
-    def init_app(self, app):
+    def init_app(self, app, **kwargs):
         app.config.setdefault('ELASTICSEARCH_HOST', 'localhost:9200')
         app.config.setdefault('ELASTICSEARCH_HTTP_AUTH', None)
+
+        self.elasticsearch_options = kwargs
 
         # Use the newstyle teardown_appcontext if it's available,
         # otherwise fall back to the request context
@@ -32,7 +34,8 @@ class FlaskElasticsearch(object):
         if ctx is not None:
             if not hasattr(ctx, 'elasticsearch'):
                 ctx.elasticsearch = Elasticsearch(hosts=[ctx.app.config.get('ELASTICSEARCH_HOST')],
-                                                  http_auth=ctx.app.config.get('ELASTICSEARCH_HTTP_AUTH'))
+                                                  http_auth=ctx.app.config.get('ELASTICSEARCH_HTTP_AUTH'),
+                                                  **self.elasticsearch_options)
 
             return getattr(ctx.elasticsearch, item)
 
