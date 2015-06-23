@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='Flask-Elasticsearch',
-    version='0.2.1',
+    version='0.2.2',
     url='https://github.com/chiangf/Flask-Elasticsearch',
     license='MIT',
     author='Frank Chiang',
