@@ -33,7 +33,11 @@ class FlaskElasticsearch(object):
         ctx = stack.top
         if ctx is not None:
             if not hasattr(ctx, 'elasticsearch'):
-                ctx.elasticsearch = Elasticsearch(hosts=[ctx.app.config.get('ELASTICSEARCH_HOST')],
+                if isinstance(ctx.app.config.get('ELASTICSEARCH_HOST'), str):
+                    hosts = [ctx.app.config.get('ELASTICSEARCH_HOST')]
+                elif isinstance(ctx.app.config.get('ELASTICSEARCH_HOST'), list):
+                    hosts = ctx.app.config.get('ELASTICSEARCH_HOST')
+                ctx.elasticsearch = Elasticsearch(hosts=hosts,
                                                   http_auth=ctx.app.config.get('ELASTICSEARCH_HTTP_AUTH'),
                                                   **self.elasticsearch_options)
 
